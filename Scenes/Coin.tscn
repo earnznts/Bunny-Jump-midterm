@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Coin.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Items/bronze_1.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Items/bronze_2.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Items/bronze_3.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Items/bronze_4.png" type="Texture" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 43.8967
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "coin",
+"speed": 5.0
+} ]
+
+[node name="Coin" type="Area2D"]
+position = Vector2( 9.63564, 2.33591 )
+scale = Vector2( 0.65, 0.65 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "coin"
+playing = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
