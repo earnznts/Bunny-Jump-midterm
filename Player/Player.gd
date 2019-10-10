@@ -8,7 +8,7 @@ export var GRAVITY = 60 #ค่าแรงดึงดูด
 var jump_count = 0 #ค่าจำนวนครั่งการกระโดดเริ่มต้น
 
 func is_dead():
-	if motion.y > 4000:
+	if motion.y > 3800:
 		return true
 	return false
 

@@ -11,3 +11,7 @@ func _on_Button_pressed():
 
 func _on_ButtonEnd_pressed():
 	get_tree().change_scene("res://Scenes/ButtonPlay.tscn")
+
+
+func _on_ButtonAgain_pressed():
+	get_tree().change_scene("res://Level/LV1.tscn")
